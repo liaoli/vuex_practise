@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <h2>Son1 子组件 -{{ $store.state.count }}</h2>
-    从vuex中获取的值: <label></label>
+    从vuex中获取的值: <label> {{$store.getters.largeThen5List}}</label>
     <br />
     <button @click="handleAdd">值 + 1</button>
     <button @click="setAsyncCount">1秒钟之后改成5555</button>

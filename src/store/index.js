@@ -9,6 +9,7 @@ const store = new Vuex.Store({
     state: {
         count: 100,
         title: "我是title",
+        list: [1, 4, 6, 8, 9, 3, 4, 7]
     },
     mutations: {
         addCount(state, num) {
@@ -31,7 +32,13 @@ const store = new Vuex.Store({
                 context.commit('changeCount', num)
             }, 1000)
         }
+    },
+    getters: {
+        largeThen5List: state =>
+            state.list.filter(item => item > 5)
+
     }
+
 
 })
 

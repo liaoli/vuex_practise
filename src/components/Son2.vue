@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <h2>Son2 子组件</h2>
-    从vuex中获取的值:<label></label>
+    从vuex中获取的值:<label>{{largeThen5List}}</label>
     <br />
     <button @click="subtractCount">值 - 1</button>
     <button @click="setAsyncCount(300)">1秒钟之后改成300</button>
@@ -10,6 +10,7 @@
   
   <script>
 import { mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "Son2Com",
   methods: {
@@ -18,6 +19,10 @@ export default {
     },
     ...mapActions(["setAsyncCount"]),
   },
+
+  computed:{
+    ...mapGetters(['largeThen5List'])
+  }
 };
 </script>
   
