@@ -9,11 +9,25 @@ const state = {
 const mutations = {
     updateMsg(state, msg) {
         state.msg = msg
+    },
+
+    setUser(state, userInfo){
+        state.userInfo = userInfo
+    }
+
+}
+const actions = {
+    updateUserInfo(context, userInfo) {
+        setTimeout(() => {
+          
+            context.commit('setUser',userInfo)
+
+        }, 500)
+
     }
 }
-const actions = {}
 const getters = {
-    UpperCaseName(state){
+    UpperCaseName(state) {
         return state.userInfo.name.toUpperCase()
     }
 }

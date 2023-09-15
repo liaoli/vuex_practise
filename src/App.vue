@@ -5,6 +5,8 @@
       用户信息 - {{ $store.state.user.userInfo.name }} -
       {{ $store.state.user.userInfo.age }} - {{ $store.state.user.msg }}
     </h1>
+    <br />
+    <button @click="updeteUserInfo">更新用户信息</button>
     <Son1></Son1>
     <input type="text" :value="count" @input="handleInput" />
     <hr />
@@ -42,6 +44,13 @@ export default {
     },
     ...mapMutations(["inputCount"]),
     ...mapMutations("user", ["updateMsg"]),
+
+    updeteUserInfo() {
+      this.$store.dispatch("user/updateUserInfo", {
+        name: "杨群",
+        age: 22,
+      });
+    },
   },
 };
 </script>
