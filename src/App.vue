@@ -12,6 +12,7 @@
 import Son1 from "./components/Son1.vue";
 import Son2 from "./components/Son2.vue";
 import { mapState } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
   name: "App",
@@ -28,8 +29,10 @@ export default {
   methods: {
     handleInput(e) {
       const num = +e.target.value;
-      this.$store.commit("inputCount", num);
+      // this.$store.commit("inputCount", num);
+      this.inputCount(num)
     },
+    ...mapMutations(['inputCount'])
   },
 };
 </script>
