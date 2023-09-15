@@ -4,6 +4,7 @@
     从vuex中获取的值: <label></label>
     <br />
     <button @click="handleAdd">值 + 1</button>
+    <button @click="setAsyncCount">1秒钟之后改成5555</button>
   </div>
 </template>
   
@@ -17,7 +18,10 @@ export default {
   methods: {
     handleAdd() {
       // this.$store.state.count++
-      this.$store.commit("addCount",10);
+      this.$store.commit("addCount", 10);
+    },
+    setAsyncCount() {
+      this.$store.dispatch("setAsyncCount", 5555);
     },
   },
 };

@@ -17,11 +17,20 @@ const store = new Vuex.Store({
         subtractCount(state, num) {
             state.count -= num
         },
-        inputCount(state,num){
+        inputCount(state, num) {
+            state.count = num
+        },
+        changeCount(state, num) {
             state.count = num
         }
 
-
+    },
+    actions: {
+        setAsyncCount(context, num) {
+            setTimeout(() => {
+                context.commit('changeCount', num)
+            }, 1000)
+        }
     }
 
 })
