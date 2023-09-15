@@ -3,6 +3,8 @@
     <h2>Son2 子组件</h2>
     从vuex中获取的值:<label>{{largeThen5List}}</label>
     <br />
+    从vuex moudle 中获取的值:<label>{{UpperCaseName}}</label>
+    <br />
     <button @click="subtractCount">值 - 1</button>
     <button @click="setAsyncCount(300)">1秒钟之后改成300</button>
   </div>
@@ -21,7 +23,8 @@ export default {
   },
 
   computed:{
-    ...mapGetters(['largeThen5List'])
+    ...mapGetters(['largeThen5List']),
+    ...mapGetters('user',['UpperCaseName']),
   }
 };
 </script>

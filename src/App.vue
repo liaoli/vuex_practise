@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <h1>根组件 -{{ count }} - {{ title }}</h1>
+    <h1>
+      用户信息 - {{ $store.state.user.userInfo.name }} -
+      {{ $store.state.user.userInfo.age }} - {{ $store.state.user.msg }}
+    </h1>
     <Son1></Son1>
     <input type="text" :value="count" @input="handleInput" />
     <hr />
@@ -30,9 +34,14 @@ export default {
     handleInput(e) {
       const num = +e.target.value;
       // this.$store.commit("inputCount", num);
-      this.inputCount(num)
+      this.inputCount(num);
+
+      // this.$store.commit('user/updateMsg','牛逼啊')
+
+      this.updateMsg("瞅啥瞅");
     },
-    ...mapMutations(['inputCount'])
+    ...mapMutations(["inputCount"]),
+    ...mapMutations("user", ["updateMsg"]),
   },
 };
 </script>
